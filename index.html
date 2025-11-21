@@ -1,0 +1,2744 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">            
+    <!-- Iconify for icons -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>            
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        html, body {
+            -webkit-text-size-adjust: 100%;
+            tab-size: 4;
+            line-height: 1.5;
+            font-family: Poppins, sans-serif;
+        }
+        
+        body {
+            background: url('assest/Back.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .cta-button,
+            .project-link,
+            .submit-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .nav-button {
+                min-height: 44px;
+            }
+        }
+        
+        /* Landscape mobile optimizations */
+        @media (max-width: 896px) and (orientation: landscape) {
+            #home {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+            
+            .hero-container {
+                gap: 1.5rem;
+            }
+            
+            .hero-image img {
+                max-width: 250px;
+            }
+        }
+        
+        h1, h2 {
+            font-family: Roboto, sans-serif;
+        }
+        
+        section {
+            width: 100%;
+            position: relative;
+        }
+        
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            z-index: 50;
+            transition: transform 0.3s ease, background 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .nav-brand img {
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+        
+        .nav-button {
+            background: linear-gradient(to right, #a855f7, #3b82f6);
+            color: white;
+            padding: 0.625rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+        
+        @media (min-width: 640px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+            
+            .nav-brand {
+                font-size: 1.5rem;
+            }
+            
+            .nav-brand img {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .nav-button {
+                display: block;
+                padding: 0.75rem 1.25rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            nav {
+                background: transparent;
+            }
+            
+            nav:hover {
+                background: rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        /* Hero Section */
+        #home {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 0, 51, 0.7) 50%, rgba(0, 26, 77, 0.7) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 1rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Particles Canvas */
+        #particles-canvas,
+        #contact-particles-canvas,
+        #footer-particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .hero-container {
+            max-width: 1152px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .hero-text {
+            text-align: center;
+        }
+        
+        /* Intro/Hello Animation Page */
+        #intro-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 0, 51, 0.95) 50%, rgba(0, 26, 77, 0.95) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease-out, visibility 1s ease-out;
+        }
+        
+        #intro-page.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        .intro-container {
+            text-align: center;
+            position: relative;
+        }
+        
+        .hello-animation-intro {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            height: clamp(4rem, 10vw, 8rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1cd8d2;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hello-text-intro {
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .hello-text-intro.fade-in {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .hello-text-intro.fade-out {
+            opacity: 0;
+            transform: translateY(-30px) scale(0.9);
+        }
+        
+        .intro-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin: 3rem auto 0;
+            overflow: hidden;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            border-radius: 2px;
+            width: 0%;
+            animation: loadingProgress 30s ease-in-out forwards;
+        }
+        
+        @keyframes loadingProgress {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        
+        .intro-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            display: block;
+            animation: logoFadeIn 1s ease-in;
+            object-fit: contain;
+        }
+        
+        @keyframes logoFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .nav-logo {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.5rem;
+            object-fit: contain;
+        }
+        
+        /* Ensure images are visible */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .hero-image img,
+        .astronaut-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .skip-intro {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .skip-intro:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 640px) {
+            .skip-intro {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        /* Hide main content initially */
+        #root {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        
+        #root.show {
+            opacity: 1;
+        }
+        
+        /* Remove hello animation from hero section */
+        .hello-animation {
+            display: none;
+        }
+        
+        .hero-text h1 {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: bold;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-text p {
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .hero-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            order: -1;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            object-fit: contain;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .cta-button {
+            padding: 0.875rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        @media (min-width: 640px) {
+            #home {
+                padding: 6rem 2rem 3rem;
+            }
+            
+            .hero-text {
+                text-align: left;
+            }
+            
+            .hero-image {
+                order: 0;
+            }
+            
+            .hero-image img {
+                max-width: 400px;
+            }
+            
+            .cta-buttons {
+                justify-content: flex-start;
+                gap: 1.5rem;
+            }
+            
+            .cta-button {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .hero-container {
+                gap: 3rem;
+            }
+            
+            .hero-image img {
+                max-width: 450px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            #home {
+                padding: 2rem;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+            
+            .hero-image img {
+                max-width: 500px;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .hero-container {
+                max-width: 1280px;
+            }
+        }
+        
+        .cta-primary {
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            color: white;
+        }
+        
+        .cta-primary:hover {
+            transform: scale(1.05);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* About Section */
+        #about {
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1rem;
+            color: white;
+        }
+        
+        .about-container {
+            max-width: 1344px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about-header {
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        
+        .about-text {
+            text-align: center;
+        }
+        
+        .about-text h2 {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 800;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #1cd8d2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: clamp(0.95rem, 2vw, 1rem);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            width: 100%;
+        }
+        
+        @media (min-width: 480px) {
+            #about {
+                padding: 5rem 1.5rem;
+            }
+            
+            .about-container {
+                gap: 3rem;
+            }
+            
+            .about-header {
+                margin-bottom: 3rem;
+            }
+            
+            .about-content {
+                gap: 2.5rem;
+            }
+            
+            .about-image {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 640px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                align-items: flex-start;
+                text-align: left;
+            }
+            
+            .about-text {
+                text-align: left;
+            }
+            
+            .about-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .about-content {
+                gap: 3rem;
+            }
+        }
+        
+        .skill-item {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        
+        .skill-item-label {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 0.25rem;
+        }
+        
+        .skill-item-value {
+            font-weight: 600;
+        }
+        
+        /* Skills Section */
+        #skills {
+            min-height: 50vh;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+            color: white;
+        }
+        
+        .skills-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            justify-content: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .skill-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 2rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-badge:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(28, 216, 210, 0.5);
+            box-shadow: 0 4px 12px rgba(28, 216, 210, 0.2);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-badge-name {
+            font-size: 0.75rem;
+            color: #d1d5db;
+            margin-top: 0.25rem;
+        }
+        
+        @media (min-width: 480px) {
+            #skills {
+                padding: 4rem 2rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+            
+            .skill-icon {
+                font-size: 3rem;
+                width: 3rem;
+                height: 3rem;
+            }
+            
+            .skill-badge-name {
+                font-size: 0.875rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .skills-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .skill-icon {
+                font-size: 3.5rem;
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .skills-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            
+            .skill-icon {
+                font-size: 4rem;
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .skills-container {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+        
+        /* Projects Section */
+        #projects {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .projects-title {
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:active {
+            transform: scale(0.98);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 1.25rem;
+            text-align: left;
+        }
+        
+        .project-title {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.25rem;
+            background: white;
+            color: black;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        
+        .project-link:active {
+            transform: scale(0.95);
+        }
+        
+        @media (min-width: 480px) {
+            #projects {
+                padding: 5rem 1.5rem;
+            }
+            
+            .projects-title {
+                margin-bottom: 3rem;
+            }
+            
+            .projects-grid {
+                gap: 2rem;
+            }
+            
+            .project-image {
+                height: 250px;
+            }
+            
+            .project-info {
+                padding: 1.5rem;
+            }
+            
+            .project-link {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .project-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 25px 50px -12px rgba(13, 88, 204, 0.9);
+            }
+            
+            .project-link:hover {
+                background: #d1d5db;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Experience Section */
+        #experience {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4rem 1rem;
+            min-height: 100vh;
+        }
+        
+        .experience-title {
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .experience-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid #1cd8d2;
+            margin-bottom: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        .experience-role {
+            font-size: clamp(1.1rem, 3vw, 1.25rem);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-company {
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+        
+        .experience-description {
+            color: #d1d5db;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+        
+        @media (min-width: 480px) {
+            #experience {
+                padding: 5rem 1.5rem;
+            }
+            
+            .experience-title {
+                margin-bottom: 3rem;
+            }
+            
+            .experience-item {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: #000;
+            color: white;
+            padding: 4rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Starry background */
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 40%, white, transparent),
+                radial-gradient(1px 1px at 33% 60%, white, transparent),
+                radial-gradient(1px 1px at 55% 80%, white, transparent),
+                radial-gradient(2px 2px at 10% 90%, white, transparent),
+                radial-gradient(1px 1px at 70% 20%, white, transparent),
+                radial-gradient(1px 1px at 25% 15%, white, transparent),
+                radial-gradient(2px 2px at 45% 35%, white, transparent),
+                radial-gradient(1px 1px at 85% 65%, white, transparent),
+                radial-gradient(1px 1px at 15% 75%, white, transparent),
+                radial-gradient(2px 2px at 95% 85%, white, transparent),
+                radial-gradient(1px 1px at 40% 25%, white, transparent),
+                radial-gradient(1px 1px at 5% 45%, white, transparent),
+                radial-gradient(2px 2px at 75% 25%, white, transparent),
+                radial-gradient(1px 1px at 35% 85%, white, transparent),
+                radial-gradient(1px 1px at 65% 5%, white, transparent),
+                radial-gradient(2px 2px at 12% 55%, white, transparent),
+                radial-gradient(1px 1px at 88% 35%, white, transparent),
+                radial-gradient(1px 1px at 28% 95%, white, transparent),
+                radial-gradient(2px 2px at 52% 15%, white, transparent),
+                radial-gradient(1px 1px at 18% 65%, white, transparent),
+                radial-gradient(1px 1px at 72% 45%, white, transparent),
+                radial-gradient(2px 2px at 38% 75%, white, transparent),
+                radial-gradient(1px 1px at 82% 55%, white, transparent),
+                radial-gradient(1px 1px at 8% 25%, white, transparent),
+                radial-gradient(2px 2px at 48% 85%, white, transparent),
+                radial-gradient(1px 1px at 92% 15%, white, transparent);
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            animation: twinkle 20s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .contact-title {
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            color: white;
+            margin: 0 0 2rem 0;
+            z-index: 20;
+            position: relative;
+        }
+        
+        .contact-container {
+            max-width: 1400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .astronaut-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 300px;
+            width: 100%;
+        }
+        
+        .astronaut-illustration {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .astronaut-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            object-fit: contain;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @media (min-width: 480px) {
+            #contact {
+                padding: 5rem 1.5rem;
+            }
+            
+            .contact-title {
+                margin-bottom: 3rem;
+            }
+            
+            .contact-container {
+                gap: 3rem;
+            }
+            
+            .astronaut-wrapper {
+                min-height: 350px;
+            }
+            
+            .astronaut-image,
+            .astronaut-illustration {
+                max-width: 400px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .astronaut-wrapper {
+                min-height: 400px;
+            }
+            
+            .astronaut-image,
+            .astronaut-illustration {
+                max-width: 450px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            #contact {
+                padding: 5rem 1.5rem;
+            }
+            
+            .contact-container {
+                flex-direction: row;
+                gap: 4rem;
+                align-items: center;
+            }
+            
+            .astronaut-image,
+            .astronaut-illustration {
+                max-width: 500px;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .contact-form-wrapper {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .contact-form-title {
+            font-size: clamp(1.5rem, 4vw, 1.875rem);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-size: clamp(0.875rem, 2vw, 0.95rem);
+            font-weight: 500;
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            color: white;
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            font-family: inherit;
+            transition: all 0.3s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 0.875rem;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .submit-btn:active {
+            transform: scale(0.98);
+            background: #1d4ed8;
+        }
+        
+        @media (min-width: 480px) {
+            .contact-form-wrapper {
+                padding: 2rem;
+                border-radius: 1.5rem;
+            }
+            
+            .contact-form-title {
+                margin-bottom: 2rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+            
+            .form-textarea {
+                min-height: 120px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .contact-form-wrapper {
+                padding: 2.5rem;
+            }
+            
+            .submit-btn:hover {
+                background: #1d4ed8;
+                transform: translateY(-2px);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            /* Background image with dark overlay for readability */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assest/footer.jpg') no-repeat center/cover;
+            background-color: #000; /* fallback color */
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-title {
+            font-size: clamp(2rem, 8vw, 14rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            line-height: 0.9;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(30px);
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63, #1cd8d2);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: footerFadeInUp 1s ease-out 0.3s forwards, gradientShift 3s ease infinite;
+        }
+        
+        @keyframes footerFadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% center;
+            }
+            50% {
+                background-position: 100% center;
+            }
+        }
+        
+        .footer-divider,
+        .footer-socials,
+        .footer-text,
+        .footer-copyright {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+
+        .footer-socials a {
+            color: #d1d5db;
+            transition: color 0.2s ease, transform 0.15s ease, background 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .footer-socials a svg {
+            width: 25px;
+            height: 25px;
+            display: block;
+            fill: currentColor;
+        }
+
+        .footer-socials a:hover {
+            color: #1cd8d2;
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .footer-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: footerFadeInUp 1s ease-out 1.2s forwards, footerFloat 3s ease-in-out 2.2s infinite;
+        }
+        
+        .footer-copyright {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: footerFadeInUp 1s ease-out 1.5s forwards;
+        }
+        
+        @media (min-width: 480px) {
+            footer {
+                padding: 3rem 1.5rem;
+            }
+        }
+        
+        .footer-divider {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #0d58cc, #00bfa5, #00c853, #0d58cc);
+            background-size: 200% auto;
+            border-radius: 9999px;
+            margin: 1rem auto;
+            animation: gradientShift 3s ease infinite;
+            box-shadow: 0 0 10px rgba(28, 216, 210, 0.5);
+        }
+        
+        
+        
+        .footer-text {
+            color: #9ca3af;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        
+        @keyframes footerFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            50% { opacity: 0.5; }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        /* Canvas Background */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Gradient Backgrounds */
+        .gradient-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+        }
+        
+        /* Background video (full-bleed behind content) */
+        .bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 300ms ease;
+            background: #000; /* fallback color */
+        }
+
+        /* When the video is hidden/paused, fade it out */
+        .bg-video.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* Scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(28, 216, 210, 0.4);
+        }
+        
+        .scroll-to-top:active {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 640px) {
+            .scroll-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* Form validation styles */
+        .form-input.error,
+        .form-textarea.error,
+        .form-select.error {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        
+        .form-input.success,
+        .form-textarea.success,
+        .form-select.success {
+            border-color: #10b981;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        /* Navbar scroll effect */
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Project card improvements */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(28, 216, 210, 0.1) 0%, rgba(0, 191, 143, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 0.5rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success message */
+        .success-message {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: #10b981;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video: place your file at `assets/bg.mp4` and optional poster at `assets/bg.jpg` -->
+    <video id="bg-video" class="bg-video" autoplay muted loop playsinline poster="assets/bg.jpg" aria-hidden="true">
+        <source src="assets/bg.mp4" type="video/mp4">
+        <!-- Video not supported / missing: page will show fallback background -->
+    </video>
+    <!-- Intro/Hello Animation Page -->
+    <div id="intro-page">
+        <button class="skip-intro" id="skipIntro" onclick="skipIntroAnimation()">Skip</button>
+        <div class="intro-container">
+            <img src="assest/logo.png" alt="Logo" class="intro-logo" id="introLogo" onerror="this.style.display='none';" />
+            <div class="hello-animation-intro">
+                <span class="hello-text-intro fade-in" id="helloTextIntro">Hello</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="intro-subtitle">Welcome to my portfolio</p>
+        </div>
+    </div>
+    
+    <div id="root">
+        <!-- Navigation -->
+        <nav role="navigation" aria-label="Main navigation">
+            <div class="nav-brand">
+                <img src="assest/logo.png" alt="Logo" class="nav-logo" onerror="this.style.display='none';" />
+                <span>Mr Kashi</span>
+            </div>
+            <a href="#contact" class="nav-button" aria-label="Contact me">Reach Out</a>
+        </nav>
+        
+        <!-- Hero Section -->
+        <section id="home">
+            <canvas id="particles-canvas"></canvas>
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>Kashi Chaudhary</h1>
+                    <p>I turn complex ideas into seamless, high-impact web experiences — building modern, scalable, and lightning-fast applications that make a difference.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="cta-button cta-primary">Get In Touch</a>
+                        <a href="assest/kashi.pdf" download="Kashi Chaudhary.pdf" class="cta-button cta-secondary">Resume</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="assest/avator.png" alt="Robot Character" onerror="this.src='assest/Astra.png'; this.onerror=null;" />
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="fade-in-up">
+            <div class="about-container">
+                <h2 class="about-header">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Kashi Chaudhary</h2>
+                        <p>I'm a Software Developer, Content Creator, and Web Developer — passionate about building fast, resilient applications and sharing coding insights.</p>
+                        <p>I love turning ideas into scalable, user-friendly products that make an impact.</p>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-item-label">Speciality</div>
+                                <div class="skill-item-value">Full Stack Developer | Frontend Developer</div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-label">Focus</div>
+                                <div class="skill-item-value">Performance & Development</div>
+                            </div>
+                        </div>
+                        <div class="cta-buttons">
+                            <a href="#projects" class="cta-button cta-primary">View Projects</a>
+                            <a href="#skills" class="cta-button cta-primary">My Skills</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="fade-in-up">
+            <h2 class="skills-title">My Skills</h2>
+            <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Modern Applications | Modern Technologies</p>
+            <div class="skills-container">
+                <div class="skill-badge" data-name="Java">
+                    <span class="iconify skill-icon" data-icon="fa-brands:java"></span>
+                    <span class="skill-badge-name">Java</span>
+                </div>
+                <div class="skill-badge" data-name="React">
+                    <span class="iconify skill-icon" data-icon="fa-brands:react"></span>
+                    <span class="skill-badge-name">React</span>
+                </div>
+                <div class="skill-badge" data-name="Next.js">
+                    <span class="iconify skill-icon" data-icon="simple-icons:nextdotjs"></span>
+                    <span class="skill-badge-name">Next.js</span>
+                </div>
+                <div class="skill-badge" data-name="TypeScript">
+                    <span class="iconify skill-icon" data-icon="simple-icons:typescript"></span>
+                    <span class="skill-badge-name">TypeScript</span>
+                </div>
+                <div class="skill-badge" data-name="Tailwind CSS">
+                    <span class="iconify skill-icon" data-icon="simple-icons:tailwindcss"></span>
+                    <span class="skill-badge-name">Tailwind CSS</span>
+                </div>
+                <div class="skill-badge" data-name="FastAPI">
+                    <span class="iconify skill-icon" data-icon="simple-icons:fastapi"></span>
+                    <span class="skill-badge-name">FastAPI</span>
+                </div>
+                <div class="skill-badge" data-name="Python">
+                    <span class="iconify skill-icon" data-icon="simple-icons:python"></span>
+                    <span class="skill-badge-name">Python</span>
+                </div>
+                <div class="skill-badge" data-name="Docker">
+                    <span class="iconify skill-icon" data-icon="simple-icons:docker"></span>
+                    <span class="skill-badge-name">Docker</span>
+                </div>
+                <div class="skill-badge" data-name="Node.js">
+                    <span class="iconify skill-icon" data-icon="fa-brands:node-js"></span>
+                    <span class="skill-badge-name">Node.js</span>
+                </div>
+                <div class="skill-badge" data-name="MongoDB">
+                    <span class="iconify skill-icon" data-icon="simple-icons:mongodb"></span>
+                    <span class="skill-badge-name">MongoDB</span>
+                </div>
+                <div class="skill-badge" data-name="Angular">
+                    <span class="iconify skill-icon" data-icon="simple-icons:angular"></span>
+                    <span class="skill-badge-name">Angular</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="fade-in-up">
+            <h2 class="projects-title">My Work</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div style="background: #0d4d3d; width: 100%; height: 250px; display: flex; align-items: center; justify-content: center; color: white;">
+                        <span>SikshyaSetu</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title">Smart College Management System</div>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div style="background: #3884d3; width: 100%; height: 250px; display: flex; align-items: center; justify-content: center; color: white;">
+                        <span>Twinkle Lady</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title">Ecommerce</div>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div style="background: #dc9317; width: 100%; height: 250px; display: flex; align-items: center; justify-content: center; color: white;">
+                        <span>Qr attendance System</span>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-title">Qr attendance</div>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Contact Section -->
+        <section id="contact">
+            <canvas id="contact-particles-canvas"></canvas>
+            <h2 class="contact-title">Contact</h2>
+            <div class="contact-container">
+                <div class="astronaut-wrapper">
+                    <img src="assest/Astra.png" alt="Astronaut playing guitar" class="astronaut-image" />
+                </div>
+                <div class="contact-form-wrapper">
+                    <h2 class="contact-form-title">Let's Work Together</h2>
+                    <div class="success-message" id="successMessage">
+                        ✓ Thank you for your message! I will get back to you soon.
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Your Name <span style="color: #ef4444;">*</span></label>
+                            <input type="text" name="name" id="name" class="form-input" placeholder="Your Name" required>
+                            <span class="error-message" id="nameError">Please enter your name</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Your Email <span style="color: #ef4444;">*</span></label>
+                            <input type="email" name="email" id="email" class="form-input" placeholder="Your Email" required>
+                            <span class="error-message" id="emailError">Please enter a valid email address</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="service">Service Needed <span style="color: #ef4444;">*</span></label>
+                            <select name="service" id="service" class="form-select" required>
+                                <option value="" disabled selected>Something in mind?</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Mobile Application">Mobile Application</option>
+                                <option value="Full Stack Development">Full Stack Development</option>
+                                <option value="Other">Others</option>
+                            </select>
+                            <span class="error-message" id="serviceError">Please select a service</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="budget">Budget <span style="color: #ef4444;">*</span></label>
+                            <input type="text" name="budget" id="budget" class="form-input" placeholder="Your Budget" required>
+                            <span class="error-message" id="budgetError">Please enter your budget</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="idea">Explain Your Idea <span style="color: #ef4444;">*</span></label>
+                            <textarea name="idea" id="idea" class="form-textarea" placeholder="Explain your idea..." required></textarea>
+                            <span class="error-message" id="ideaError">Please explain your idea</span>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span id="submitText">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Scroll to Top Button -->
+        <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+            ↑
+        </button>
+        
+        <!-- Footer -->
+        <footer>
+            <canvas id="footer-particles-canvas"></canvas>
+            <h1 class="footer-title">Mr Kashi Chaudhary</h1>
+            <div class="footer-divider"></div>
+            <div class="footer-socials">
+                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 12.073C22 6.48 17.523 2 12 2S2 6.48 2 12.073c0 4.99 3.657 9.128 8.438 9.93v-7.03H7.898v-2.9h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.462h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.9h-2.33V22C18.343 21.2 22 17.062 22 12.073z"/></svg>
+                </a>
+                <a href="https://github.com/master-x21" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.428 2.865 8.184 6.839 9.506.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.004.071 1.532 1.031 1.532 1.031.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.03-2.687-.103-.253-.447-1.27.098-2.648 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.338 1.909-1.296 2.748-1.026 2.748-1.026.546 1.379.202 2.396.1 2.649.64.699 1.028 1.594 1.028 2.687 0 3.849-2.338 4.695-4.566 4.943.359.31.679.92.679 1.854 0 1.337-.012 2.417-.012 2.747 0 .268.18.579.688.481A10.02 10.02 0 0022 12.017C22 6.484 17.523 2 12 2z"/></svg>
+                </a>
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm5 6.5A4.5 4.5 0 1016.5 13 4.505 4.505 0 0012 8.5zm6.5-3.25a1.125 1.125 0 11-1.125 1.125A1.125 1.125 0 0118.5 5.25zM12 10a2 2 0 112 2 2 2 0 01-2-2z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/stranger-x21" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.039-1.852-3.039-1.853 0-2.136 1.447-2.136 2.944v5.664H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.372-1.852 3.606 0 4.27 2.373 4.27 5.459v6.284zM5.337 7.433a2.062 2.062 0 11.001-4.124 2.062 2.062 0 01-.001 4.124zM6.977 20.452H3.697V9h3.28v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                </a>
+            </div>
+            <p class="footer-text">"Success is when preparation meets opportunity."</p>
+            <div class="footer-copyright">© <span id="year"></span> Kashi Chaudhary. All rights reserved.</div>
+        </footer>
+    </div>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Intro Page Hello Animation
+        const greetings = [
+            "Hello", "नमस्ते", "नमस्कार", "Hola", "Bonjour", "Hallo", "Ciao", "Olá",
+            "Привет", "你好", "こんにちは", "안녕하세요", "مرحبا", "Merhaba", "سلام",
+            "שלום", "สวัสดี", "Xin chào", "Halo", "Hai", "Jambo", "Sawubona",
+            "Γειά σου", "Cześć", "Ahoj", "Hej", "Hei", "Salut", "Helló", "হ্যালো"
+        ];
+        
+        let currentGreetingIndex = 0;
+        const helloTextIntro = document.getElementById('helloTextIntro');
+        const introPage = document.getElementById('intro-page');
+        const root = document.getElementById('root');
+        let animationComplete = false;
+        
+        function updateGreeting() {
+            if (helloTextIntro && !animationComplete) {
+                // Fade out current greeting
+                helloTextIntro.classList.remove('fade-in');
+                helloTextIntro.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    // Update text
+                    currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+                    helloTextIntro.textContent = greetings[currentGreetingIndex];
+                    
+                    // Fade in new greeting
+                    helloTextIntro.classList.remove('fade-out');
+                    helloTextIntro.classList.add('fade-in');
+                    
+                    // Check if we've shown all greetings
+                    if (currentGreetingIndex === 0 && greetings.length > 1) {
+                        // We've completed one full cycle, wait a bit then transition
+                        setTimeout(() => {
+                            transitionToHome();
+                        }, 1000);
+                    }
+                }, 500);
+            }
+        }
+        
+        function transitionToHome() {
+            if (animationComplete) return;
+            animationComplete = true;
+            
+            // Clear any intervals
+            if (window.greetingInterval) {
+                clearInterval(window.greetingInterval);
+            }
+            
+            // Fade out intro page
+            introPage.classList.add('hidden');
+            
+            // Show main content
+            setTimeout(() => {
+                root.classList.add('show');
+                // Remove intro page from DOM after transition
+                setTimeout(() => {
+                    introPage.style.display = 'none';
+                }, 1000);
+            }, 500);
+        }
+        
+        // Skip intro function (global for onclick)
+        function skipIntroAnimation() {
+            transitionToHome();
+        }
+        
+        // Start greeting animation
+        if (helloTextIntro) {
+            // Show first greeting
+            helloTextIntro.textContent = greetings[0];
+            
+            // Update greeting every 0.6 seconds (to show more greetings in 10 seconds)
+            // With 30 greetings, this will show about 16-17 greetings before transitioning
+            window.greetingInterval = setInterval(() => {
+                if (!animationComplete) {
+                    updateGreeting();
+                } else {
+                    clearInterval(window.greetingInterval);
+                }
+            }, 1000);
+            
+            // Transition after 10 seconds
+            setTimeout(() => {
+                if (!animationComplete) {
+                    transitionToHome();
+                }
+            }, 10000);
+        } else {
+            // If intro element doesn't exist, show main content immediately
+            root.classList.add('show');
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Scroll animations using Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Add fade-in-up class to sections and observe them
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.add('fade-in-up');
+            observer.observe(section);
+        });
+        
+        // Navbar scroll effect
+        const nav = document.querySelector('nav');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        /* 
+         * EMAILJS SETUP INSTRUCTIONS:
+         * 
+         * 1. Go to https://www.emailjs.com/ and create a free account
+         * 2. Create an Email Service (Gmail, Outlook, etc.)
+         * 3. Create an Email Template with the following variables:
+         *    - {{to_email}} (will be set to: kashichaudhary2002@gmail.com)
+         *    - {{name}}
+         *    - {{email}}
+         *    - {{service}}
+         *    - {{budget}}
+         *    - {{idea}}
+         * 4. In your EmailJS template, set the "To Email" field to: {{to_email}}
+         * 5. Get your Public Key from Account > API Keys
+         * 6. Get your Service ID from Email Services
+         * 7. Get your Template ID from Email Templates
+         * 8. Replace the placeholders below with your actual values
+         */
+        
+        // Initialize EmailJS (Replace with your public key)
+        (function() {
+            // TODO: Replace "YOUR_PUBLIC_KEY" with your EmailJS Public Key
+            emailjs.init('KD8PYSkFbR4TgHijc');
+        })();
+        
+        // Form validation and handling with EmailJS
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        // Helper function to validate email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Helper function to show error
+        function showError(input, errorElement, message) {
+            input.classList.remove('success');
+            input.classList.add('error');
+            errorElement.textContent = message;
+            errorElement.classList.add('show');
+        }
+        
+        // Helper function to show success
+        function showSuccess(input, errorElement) {
+            input.classList.remove('error');
+            input.classList.add('success');
+            errorElement.classList.remove('show');
+        }
+        
+        // Real-time validation
+        if (form) {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const serviceInput = document.getElementById('service');
+            const budgetInput = document.getElementById('budget');
+            const ideaInput = document.getElementById('idea');
+            
+            // Name validation
+            nameInput.addEventListener('blur', () => {
+                const nameError = document.getElementById('nameError');
+                if (!nameInput.value.trim()) {
+                    showError(nameInput, nameError, 'Please enter your name');
+                } else {
+                    showSuccess(nameInput, nameError);
+                }
+            });
+            
+            // Email validation
+            emailInput.addEventListener('blur', () => {
+                const emailError = document.getElementById('emailError');
+                if (!emailInput.value.trim()) {
+                    showError(emailInput, emailError, 'Please enter your email');
+                } else if (!isValidEmail(emailInput.value)) {
+                    showError(emailInput, emailError, 'Please enter a valid email address');
+                } else {
+                    showSuccess(emailInput, emailError);
+                }
+            });
+            
+            // Service validation
+            serviceInput.addEventListener('change', () => {
+                const serviceError = document.getElementById('serviceError');
+                if (!serviceInput.value) {
+                    showError(serviceInput, serviceError, 'Please select a service');
+                } else {
+                    showSuccess(serviceInput, serviceError);
+                }
+            });
+            
+            // Budget validation
+            budgetInput.addEventListener('blur', () => {
+                const budgetError = document.getElementById('budgetError');
+                if (!budgetInput.value.trim()) {
+                    showError(budgetInput, budgetError, 'Please enter your budget');
+                } else {
+                    showSuccess(budgetInput, budgetError);
+                }
+            });
+            
+            // Idea validation
+            ideaInput.addEventListener('blur', () => {
+                const ideaError = document.getElementById('ideaError');
+                if (!ideaInput.value.trim()) {
+                    showError(ideaInput, ideaError, 'Please explain your idea');
+                } else if (ideaInput.value.trim().length < 10) {
+                    showError(ideaInput, ideaError, 'Please provide more details (at least 10 characters)');
+                } else {
+                    showSuccess(ideaInput, ideaError);
+                }
+            });
+            
+            // Form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Clear previous success message
+                successMessage.classList.remove('show');
+                
+                // Validate all fields
+                let isValid = true;
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const service = serviceInput.value;
+                const budget = budgetInput.value.trim();
+                const idea = ideaInput.value.trim();
+                
+                // Validate name
+                if (!name) {
+                    showError(nameInput, document.getElementById('nameError'), 'Please enter your name');
+                    isValid = false;
+                } else {
+                    showSuccess(nameInput, document.getElementById('nameError'));
+                }
+                
+                // Validate email
+                if (!email) {
+                    showError(emailInput, document.getElementById('emailError'), 'Please enter your email');
+                    isValid = false;
+                } else if (!isValidEmail(email)) {
+                    showError(emailInput, document.getElementById('emailError'), 'Please enter a valid email address');
+                    isValid = false;
+                } else {
+                    showSuccess(emailInput, document.getElementById('emailError'));
+                }
+                
+                // Validate service
+                if (!service) {
+                    showError(serviceInput, document.getElementById('serviceError'), 'Please select a service');
+                    isValid = false;
+                } else {
+                    showSuccess(serviceInput, document.getElementById('serviceError'));
+                }
+                
+                // Validate budget
+                if (!budget) {
+                    showError(budgetInput, document.getElementById('budgetError'), 'Please enter your budget');
+                    isValid = false;
+                } else {
+                    showSuccess(budgetInput, document.getElementById('budgetError'));
+                }
+                
+                // Validate idea
+                if (!idea) {
+                    showError(ideaInput, document.getElementById('ideaError'), 'Please explain your idea');
+                    isValid = false;
+                } else if (idea.length < 10) {
+                    showError(ideaInput, document.getElementById('ideaError'), 'Please provide more details (at least 10 characters)');
+                    isValid = false;
+                } else {
+                    showSuccess(ideaInput, document.getElementById('ideaError'));
+                }
+                
+                if (!isValid) {
+                    // Scroll to first error
+                    const firstError = form.querySelector('.error');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        firstError.focus();
+                    }
+                        return;
+                    }
+                    
+                const submitBtn = document.getElementById('submitBtn');
+                const submitText = document.getElementById('submitText');
+                const originalText = submitText.textContent;
+                
+                // Disable button and show loading
+                submitBtn.disabled = true;
+                submitText.innerHTML = '<span class="spinner"></span>Sending...';
+                
+                try {
+                    // Prepare email data
+                    const emailParams = {
+                        to_email: 'kashichaudhary2002@gmail.com',
+                        name: name,
+                        email: email,
+                        service: service,
+                        budget: budget,
+                        idea: idea,
+                        message: `Name: ${name}\nEmail: ${email}\nService: ${service}\nBudget: ${budget}\n\nIdea:\n${idea}`
+                    };
+                    
+                    // Send email using EmailJS
+                    await emailjs.send(
+                        'service_6uaj1sk',
+                        'template_o6tk345',
+                        emailParams
+                    );
+                    
+                    // Show success message
+                    successMessage.classList.add('show');
+                    form.reset();
+                    
+                    // Remove all success/error classes
+                    form.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(input => {
+                        input.classList.remove('success', 'error');
+                    });
+                    form.querySelectorAll('.error-message').forEach(error => {
+                        error.classList.remove('show');
+                    });
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                } catch (error) {
+                    console.error('Email sending failed:', error);
+                    
+                    alert('Sorry, there was an error sending your message. Please try again or contact me directly at kashichaudhary2002@gmail.com');
+                } finally {
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitText.textContent = originalText;
+                }
+            });
+        }
+
+        // Particles Animation with Connecting Lines
+        (function() {
+            const canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
+            
+            // Check for reduced motion preference
+            const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReduced && prefersReduced.matches) {
+                canvas.style.display = 'none';
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            const homeSection = document.getElementById('home');
+            let animationId = null;
+            
+            // Set canvas size
+            function resizeCanvas() {
+                canvas.width = homeSection.offsetWidth;
+                canvas.height = homeSection.offsetHeight;
+            }
+            
+            // Wait for intro to complete before starting animation
+            function initParticles() {
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+                
+                // Particle class
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.vx = (Math.random() - 0.5) * 0.5;
+                        this.vy = (Math.random() - 0.5) * 0.5;
+                        this.radius = Math.random() * 2 + 1;
+                    }
+                    
+                    update() {
+                        this.x += this.vx;
+                        this.y += this.vy;
+                        
+                        // Bounce off edges
+                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                        
+                        // Keep particles within bounds
+                        this.x = Math.max(0, Math.min(canvas.width, this.x));
+                        this.y = Math.max(0, Math.min(canvas.height, this.y));
+                    }
+                    
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(28, 216, 210, 0.8)';
+                        ctx.fill();
+                    }
+                }
+                
+                // Create particles (fewer on mobile for performance)
+                const particleCount = window.innerWidth < 768 ? 30 : 50;
+                const particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+                
+                // Mouse position
+                let mouseX = 0;
+                let mouseY = 0;
+                let mouseActive = false;
+                
+                // Track mouse position
+                homeSection.addEventListener('mousemove', (e) => {
+                    const rect = homeSection.getBoundingClientRect();
+                    mouseX = e.clientX - rect.left;
+                    mouseY = e.clientY - rect.top;
+                    mouseActive = true;
+                });
+                
+                homeSection.addEventListener('mouseleave', () => {
+                    mouseActive = false;
+                });
+                
+                // Draw connecting lines
+                function drawLines() {
+                    const maxDistance = 150;
+                    
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < maxDistance) {
+                                const opacity = (1 - distance / maxDistance) * 0.3;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(28, 216, 210, ${opacity})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                        
+                        // Connect particles to mouse
+                        if (mouseActive) {
+                            const dx = particles[i].x - mouseX;
+                            const dy = particles[i].y - mouseY;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < maxDistance * 1.5) {
+                                const opacity = (1 - distance / (maxDistance * 1.5)) * 0.4;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(mouseX, mouseY);
+                                ctx.strokeStyle = `rgba(0, 191, 143, ${opacity})`;
+                                ctx.lineWidth = 1;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                }
+                
+                // Animation loop
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Update and draw particles
+                    particles.forEach(particle => {
+                        particle.update();
+                        particle.draw();
+                    });
+                    
+                    // Draw connecting lines
+                    drawLines();
+                    
+                    animationId = requestAnimationFrame(animate);
+                }
+                
+                // Start animation
+                animate();
+            }
+            
+            // Initialize after intro completes or immediately if intro is skipped
+            if (document.getElementById('root').classList.contains('show')) {
+                initParticles();
+            } else {
+                // Wait for intro to complete
+                const checkIntro = setInterval(() => {
+                    if (document.getElementById('root').classList.contains('show')) {
+                        clearInterval(checkIntro);
+                        setTimeout(initParticles, 500); // Small delay for smooth transition
+                    }
+                }, 100);
+            }
+        })();
+
+        // Particles Animation for Contact Section
+        (function() {
+            const canvas = document.getElementById('contact-particles-canvas');
+            if (!canvas) return;
+            
+            // Check for reduced motion preference
+            const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReduced && prefersReduced.matches) {
+                canvas.style.display = 'none';
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            const contactSection = document.getElementById('contact');
+            
+            // Set canvas size
+            function resizeCanvas() {
+                canvas.width = contactSection.offsetWidth;
+                canvas.height = contactSection.offsetHeight;
+            }
+            
+            function initParticles() {
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+                
+                // Particle class
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.vx = (Math.random() - 0.5) * 0.4;
+                        this.vy = (Math.random() - 0.5) * 0.4;
+                        this.radius = Math.random() * 1.5 + 0.5;
+                    }
+                    
+                    update() {
+                        this.x += this.vx;
+                        this.y += this.vy;
+                        
+                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                        
+                        this.x = Math.max(0, Math.min(canvas.width, this.x));
+                        this.y = Math.max(0, Math.min(canvas.height, this.y));
+                    }
+                    
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                        ctx.fill();
+                    }
+                }
+                
+                // Create particles (fewer for contact section)
+                const particleCount = window.innerWidth < 768 ? 20 : 35;
+                const particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+                
+                // Mouse position
+                let mouseX = 0;
+                let mouseY = 0;
+                let mouseActive = false;
+                
+                contactSection.addEventListener('mousemove', (e) => {
+                    const rect = contactSection.getBoundingClientRect();
+                    mouseX = e.clientX - rect.left;
+                    mouseY = e.clientY - rect.top;
+                    mouseActive = true;
+                });
+                
+                contactSection.addEventListener('mouseleave', () => {
+                    mouseActive = false;
+                });
+                
+                // Draw connecting lines
+                function drawLines() {
+                    const maxDistance = 120;
+                    
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < maxDistance) {
+                                const opacity = (1 - distance / maxDistance) * 0.25;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                        
+                        // Connect particles to mouse
+                        if (mouseActive) {
+                            const dx = particles[i].x - mouseX;
+                            const dy = particles[i].y - mouseY;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < maxDistance * 1.5) {
+                                const opacity = (1 - distance / (maxDistance * 1.5)) * 0.3;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(mouseX, mouseY);
+                                ctx.strokeStyle = `rgba(28, 216, 210, ${opacity})`;
+                                ctx.lineWidth = 0.8;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                }
+                
+                // Animation loop
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    particles.forEach(particle => {
+                        particle.update();
+                        particle.draw();
+                    });
+                    
+                    drawLines();
+                    
+                    requestAnimationFrame(animate);
+                }
+                
+                animate();
+            }
+            
+            // Initialize when section is visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initParticles();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(contactSection);
+        })();
+
+        // Particles Animation for Footer Section
+        (function() {
+            const canvas = document.getElementById('footer-particles-canvas');
+            if (!canvas) return;
+            
+            // Check for reduced motion preference
+            const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReduced && prefersReduced.matches) {
+                canvas.style.display = 'none';
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            const footerSection = document.querySelector('footer');
+            
+            // Set canvas size
+            function resizeCanvas() {
+                canvas.width = footerSection.offsetWidth;
+                canvas.height = footerSection.offsetHeight;
+            }
+            
+            function initParticles() {
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+                
+                // Particle class
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.vx = (Math.random() - 0.5) * 0.3;
+                        this.vy = (Math.random() - 0.5) * 0.3;
+                        this.radius = Math.random() * 1.5 + 0.5;
+                    }
+                    
+                    update() {
+                        this.x += this.vx;
+                        this.y += this.vy;
+                        
+                        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                        
+                        this.x = Math.max(0, Math.min(canvas.width, this.x));
+                        this.y = Math.max(0, Math.min(canvas.height, this.y));
+                    }
+                    
+                    draw() {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(28, 216, 210, 0.5)';
+                        ctx.fill();
+                    }
+                }
+                
+                // Create particles (fewer for footer)
+                const particleCount = window.innerWidth < 768 ? 15 : 25;
+                const particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+                
+                // Mouse position
+                let mouseX = 0;
+                let mouseY = 0;
+                let mouseActive = false;
+                
+                footerSection.addEventListener('mousemove', (e) => {
+                    const rect = footerSection.getBoundingClientRect();
+                    mouseX = e.clientX - rect.left;
+                    mouseY = e.clientY - rect.top;
+                    mouseActive = true;
+                });
+                
+                footerSection.addEventListener('mouseleave', () => {
+                    mouseActive = false;
+                });
+                
+                // Draw connecting lines
+                function drawLines() {
+                    const maxDistance = 100;
+                    
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < maxDistance) {
+                                const opacity = (1 - distance / maxDistance) * 0.2;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = `rgba(28, 216, 210, ${opacity})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                        
+                        // Connect particles to mouse
+                        if (mouseActive) {
+                            const dx = particles[i].x - mouseX;
+                            const dy = particles[i].y - mouseY;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < maxDistance * 1.5) {
+                                const opacity = (1 - distance / (maxDistance * 1.5)) * 0.3;
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(mouseX, mouseY);
+                                ctx.strokeStyle = `rgba(0, 191, 143, ${opacity})`;
+                                ctx.lineWidth = 0.8;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                }
+                
+                // Animation loop
+                function animate() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    particles.forEach(particle => {
+                        particle.update();
+                        particle.draw();
+                    });
+                    
+                    drawLines();
+                    
+                    requestAnimationFrame(animate);
+                }
+                
+                animate();
+            }
+            
+            // Initialize when footer is visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        initParticles();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(footerSection);
+        })();
+
+        // Background video accessibility & fallback
+        (function() {
+            const bgVideo = document.getElementById('bg-video');
+            if (!bgVideo) return;
+
+            const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            function shouldDisableVideo() {
+                // Respect user reduced motion preference
+                if (prefersReduced && prefersReduced.matches) return true;
+                // Avoid autoplay on very constrained connections (2g)
+                try {
+                    const nav = navigator;
+                    if (nav.connection && typeof nav.connection.effectiveType === 'string') {
+                        if (nav.connection.effectiveType.includes('2g')) return true;
+                    }
+                } catch (e) {}
+                return false;
+            }
+
+            function updateVideo() {
+                if (shouldDisableVideo()) {
+                    try { bgVideo.pause(); } catch(e){}
+                    bgVideo.classList.add('hidden');
+                    return;
+                }
+
+                // Try to play, if it fails hide the element gracefully
+                bgVideo.classList.remove('hidden');
+                const playPromise = bgVideo.play();
+                if (playPromise && typeof playPromise.then === 'function') {
+                    playPromise.catch(() => {
+                        bgVideo.classList.add('hidden');
+                    });
+                }
+            }
+
+            // Hide if video errors or fails to load
+            bgVideo.addEventListener('error', () => bgVideo.classList.add('hidden'));
+            if (prefersReduced && typeof prefersReduced.addEventListener === 'function') {
+                prefersReduced.addEventListener('change', updateVideo);
+            }
+            window.addEventListener('load', updateVideo);
+        })();
+    </script>
+</body>
+</html>
