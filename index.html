@@ -28,7 +28,7 @@
         }
         
         body {
-            background: url('assest/Back.jpg') no-repeat center center fixed;
+            background: url('assest/back.png') no-repeat center center fixed;
             background-size: cover;
             background-color: #000;
             color: #fff;
@@ -51,6 +51,388 @@
             }
         }
         
+        /* Mobile First - Enhanced Mobile Styles */
+        @media (max-width: 480px) {
+            html, body {
+                font-size: 14px;
+            }
+            
+            #home {
+                min-height: 100vh;
+                padding: 5rem 1rem 1rem;
+            }
+            
+            .hero-container {
+                gap: 1rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-text p {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-image img {
+                max-width: 280px;
+            }
+            
+            .cta-buttons {
+                gap: 0.75rem;
+            }
+            
+            .cta-button {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.85rem;
+                min-width: 120px;
+            }
+            
+            nav {
+                padding: 0.6rem 0.8rem;
+            }
+            
+            .nav-brand {
+                font-size: 1rem;
+                gap: 0.35rem;
+            }
+            
+            .nav-brand img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            /* About section mobile */
+            #about {
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+            
+            .about-header {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .about-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .about-text h2 {
+                font-size: 1.3rem;
+            }
+            
+            .about-text p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .skills-grid {
+                gap: 0.75rem;
+            }
+            
+            /* Skills section mobile */
+            #skills {
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+            
+            .skills-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .skill-badge {
+                padding: 0.8rem;
+            }
+            
+            .skill-icon {
+                font-size: 2rem;
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .skill-badge-name {
+                font-size: 0.65rem;
+            }
+            
+            /* Projects section mobile */
+            #projects {
+                padding: 3rem 1rem;
+            }
+            
+            .projects-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .projects-grid {
+                gap: 1rem;
+            }
+            
+            .project-card {
+                border-radius: 0.75rem;
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+            
+            .project-info {
+                padding: 1rem;
+            }
+            
+            .project-title {
+                font-size: 1.1rem;
+            }
+            
+            .project-link {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            /* Experience section mobile */
+            #experience {
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+            
+            .experience-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .experience-list {
+                max-width: 100%;
+            }
+            
+            .experience-item {
+                padding: 1.25rem;
+                margin-bottom: 1rem;
+                border-left: 3px solid #1cd8d2;
+            }
+            
+            .experience-role {
+                font-size: 1.05rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .experience-company {
+                font-size: 0.85rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .experience-description {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+            
+            /* Contact section mobile */
+            #contact {
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+            
+            .contact-title {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .astronaut-wrapper {
+                min-height: 250px;
+            }
+            
+            .astronaut-image {
+                max-width: 300px;
+            }
+            
+            .contact-form-wrapper {
+                width: 100%;
+                padding: 1.5rem;
+                border-radius: 1rem;
+            }
+            
+            .contact-form-title {
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
+            }
+            
+            .form-label {
+                font-size: 0.9rem;
+            }
+            
+            .form-input,
+            .form-textarea,
+            .form-select {
+                font-size: 1rem;
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+            }
+            
+            .submit-btn {
+                padding: 0.75rem;
+                font-size: 0.95rem;
+                min-height: 44px;
+            }
+            
+            /* Footer mobile */
+            footer {
+                padding: 2rem 1rem;
+            }
+            
+            .footer-title {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .footer-socials {
+                gap: 0.5rem;
+                margin: 1.5rem 0;
+            }
+            
+            .footer-socials a {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .footer-socials a svg {
+                width: 22px;
+                height: 22px;
+            }
+            
+            .footer-copyright {
+                font-size: 0.7rem;
+            }
+        }
+        
+        /* Medium devices (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            #home {
+                padding: 5.5rem 1.5rem 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text p {
+                font-size: 1rem;
+            }
+            
+            .hero-image img {
+                max-width: 380px;
+            }
+            
+            #about {
+                padding: 4rem 1.5rem;
+            }
+            
+            .about-header {
+                font-size: 2rem;
+            }
+            
+            .about-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            #skills {
+                padding: 4rem 1.5rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .skill-icon {
+                font-size: 3rem;
+                width: 3rem;
+                height: 3rem;
+            }
+            
+            #projects {
+                padding: 4rem 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .project-image {
+                height: 220px;
+            }
+            
+            #experience {
+                padding: 4rem 1.5rem;
+            }
+            
+            #contact {
+                padding: 4rem 1.5rem;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .astronaut-wrapper {
+                min-height: 350px;
+            }
+        }
+        
+        /* Large devices (769px+) */
+        @media (min-width: 769px) {
+            #projects {
+                padding: 4rem 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .project-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 25px 50px -12px rgba(13, 88, 204, 0.9);
+            }
+            
+            .project-link:hover {
+                background: #d1d5db;
+            }
+        }
+        
+        /* Extra large devices (1025px+) */
+        @media (min-width: 1025px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .contact-container {
+                flex-direction: row;
+                gap: 3rem;
+            }
+            
+            .astronaut-wrapper {
+                flex: 1;
+            }
+            
+            .contact-form-wrapper {
+                flex: 1;
+            }
+        }
+        
         /* Landscape mobile optimizations */
         @media (max-width: 896px) and (orientation: landscape) {
             #home {
@@ -60,10 +442,15 @@
             
             .hero-container {
                 gap: 1.5rem;
+                grid-template-columns: 1fr 1fr;
             }
             
             .hero-image img {
                 max-width: 250px;
+            }
+            
+            nav {
+                padding: 0.75rem;
             }
         }
         
@@ -86,10 +473,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 0.75rem 1rem;
-            z-index: 50;
+            z-index: 200;
             transition: transform 0.3s ease, background 0.3s ease;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
+            flex-wrap: nowrap;
         }
         
         .nav-brand {
@@ -122,6 +510,168 @@
         
         .nav-button:active {
             transform: scale(0.95);
+        }
+        
+        /* Navbar menu and buttons */
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            display: block;
+        }
+        
+        .nav-link:hover {
+            color: #1cd8d2;
+        }
+        
+        .nav-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .nav-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .nav-menu-toggle {
+                display: flex;
+                z-index: 51;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                align-items: stretch;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                z-index: 180;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-menu.active {
+                max-height: 400px;
+                overflow-y: auto;
+            }
+            
+            .nav-menu li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-link {
+                display: block;
+                padding: 1rem;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 500;
+                font-size: 1rem;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+            
+            .nav-link:hover {
+                background: rgba(28, 216, 210, 0.1);
+                color: #1cd8d2;
+            }
+            
+            .nav-menu .nav-button {
+                display: block !important;
+                padding: 1rem;
+                background: linear-gradient(to right, #a855f7, #3b82f6) !important;
+                color: white;
+                text-decoration: none;
+                border: none;
+                border-radius: 0;
+                font-weight: 500;
+                font-size: 1rem;
+                cursor: pointer;
+                text-align: center;
+                transition: background 0.3s ease;
+            }
+            
+            .nav-menu .nav-button:hover {
+                background: linear-gradient(to right, #9333ea, #2563eb) !important;
+            }
+            
+            .nav-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+            
+            .nav-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .nav-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.6rem 0.8rem;
+            }
+            
+            .nav-brand {
+                font-size: 1rem;
+                gap: 0.35rem;
+            }
+            
+            .nav-brand img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            .nav-menu-toggle {
+                padding: 0.4rem;
+            }
+            
+            .nav-menu-toggle span {
+                width: 22px;
+                height: 2px;
+            }
         }
         
         @media (min-width: 640px) {
@@ -1215,6 +1765,8 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
             -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
         }
         
         .submit-btn:active {
@@ -1568,31 +2120,73 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Submit button sending animation */
+        .submit-btn.loading {
+            position: relative;
+            pointer-events: none;
+            opacity: 0.9;
+            background: linear-gradient(120deg, #2563eb, #3b82f6, #2563eb);
+            background-size: 200% 200%;
+            animation: gradientShift 1.5s ease infinite;
+        }
+        
+        .submit-btn.loading::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            animation: pulseGlow 1.2s ease-in-out infinite;
+        }
+
+        .submit-btn > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
         
         /* Success message */
         .success-message {
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.15) 100%);
+            border: 2px solid #10b981;
             color: #10b981;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
             display: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
         }
         
         .success-message.show {
             display: block;
-            animation: slideDown 0.3s ease-out;
+            animation: slideDownBounce 0.6s ease-out;
         }
         
-        @keyframes slideDown {
-            from {
+        @keyframes slideDownBounce {
+            0% {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-30px) scale(0.9);
             }
-            to {
+            50% {
+                transform: translateY(5px) scale(1.02);
+            }
+            100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
     </style>
@@ -1625,7 +2219,19 @@
                 <img src="assest/logo.png" alt="Logo" class="nav-logo" onerror="this.style.display='none';" />
                 <span>Mr Kashi</span>
             </div>
-            <a href="#contact" class="nav-button" aria-label="Contact me">Reach Out</a>
+            <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-button" aria-label="Contact me">Reach Out</a></li>
+            </ul>
         </nav>
         
         <!-- Hero Section -->
@@ -1760,6 +2366,32 @@
             </div>
         </section>
         
+        <!-- Experience Section -->
+        <section id="experience" class="fade-in-up">
+            <h2 class="experience-title">Professional Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-role">Application & Networking Engineer (Intern)</div>
+                    <div class="experience-company">Nepal Electricity Authority (NEA) • DEC 2024 – Present</div>
+                    <div class="experience-description">
+                        <p style="margin-bottom: 1rem;">Actively involved in updating and maintaining NEA's existing websites, including feature enhancements, UI improvements, and content updates.</p>
+                        
+                        <p style="margin-bottom: 0.5rem; font-weight: 500;">Developing internal enterprise applications, including:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; list-style-type: disc;">
+                            <li style="margin-bottom: 0.5rem;">Automatic Notice Circulation System (ANCS) for NEA to streamline official notice creation, approval, and distribution.</li>
+                            <li style="margin-bottom: 0.5rem;">Smart Electricity Connection & Approval System to digitize and automate electricity connection requests, verification, and approval workflows.</li>
+                        </ul>
+                        
+                        <ul style="margin-left: 1.5rem; list-style-type: disc;">
+                            <li style="margin-bottom: 0.5rem;">Collaborating with senior engineers and stakeholders to analyze requirements, design system workflows, and implement functional modules.</li>
+                            <li style="margin-bottom: 0.5rem;">Supporting application deployment, testing, and issue resolution in a government-scale IT environment.</li>
+                            <li style="margin-bottom: 0.5rem;">Assisting with network configuration, system maintenance, and troubleshooting to ensure reliable and secure infrastructure.</li>
+                            <li>Following best practices for security, documentation, and version control during application development.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <!-- Contact Section -->
         <section id="contact">
@@ -1772,7 +2404,9 @@
                 <div class="contact-form-wrapper">
                     <h2 class="contact-form-title">Let's Work Together</h2>
                     <div class="success-message" id="successMessage">
-                        ✓ Thank you for your message! I will get back to you soon.
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✓</div>
+                        <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Thank You for Contacting!</div>
+                        <div style="font-size: 0.95rem; color: #6ee7b7;">Your message has been sent successfully. I will get back to you soon.</div>
                     </div>
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
@@ -1786,20 +2420,9 @@
                             <span class="error-message" id="emailError">Please enter a valid email address</span>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="service">Service Needed <span style="color: #ef4444;">*</span></label>
-                            <select name="service" id="service" class="form-select" required>
-                                <option value="" disabled selected>Something in mind?</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Mobile Application">Mobile Application</option>
-                                <option value="Full Stack Development">Full Stack Development</option>
-                                <option value="Other">Others</option>
-                            </select>
-                            <span class="error-message" id="serviceError">Please select a service</span>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="budget">Budget <span style="color: #ef4444;">*</span></label>
-                            <input type="text" name="budget" id="budget" class="form-input" placeholder="Your Budget" required>
-                            <span class="error-message" id="budgetError">Please enter your budget</span>
+                            <label class="form-label" for="phone">Phone Number <span style="color: #ef4444;">*</span></label>
+                            <input type="tel" name="phone" id="phone" class="form-input" placeholder="Your Phone Number" required>
+                            <span class="error-message" id="phoneError">Please enter a valid phone number</span>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="idea">Explain Your Idea <span style="color: #ef4444;">*</span></label>
@@ -1843,8 +2466,7 @@
         </footer>
     </div>
     
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- SMTP Email Service -->
     
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -1990,6 +2612,32 @@
             lastScroll = currentScroll;
         });
         
+        // Mobile menu toggle
+        const navMenuToggle = document.getElementById('navMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navMenuToggle.addEventListener('click', () => {
+            navMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('.nav-link, .nav-button');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+        
         // Scroll to top button
         const scrollToTopBtn = document.getElementById('scrollToTop');
         
@@ -2008,32 +2656,7 @@
             });
         });
         
-        /* 
-         * EMAILJS SETUP INSTRUCTIONS:
-         * 
-         * 1. Go to https://www.emailjs.com/ and create a free account
-         * 2. Create an Email Service (Gmail, Outlook, etc.)
-         * 3. Create an Email Template with the following variables:
-         *    - {{to_email}} (will be set to: kashichaudhary2002@gmail.com)
-         *    - {{name}}
-         *    - {{email}}
-         *    - {{service}}
-         *    - {{budget}}
-         *    - {{idea}}
-         * 4. In your EmailJS template, set the "To Email" field to: {{to_email}}
-         * 5. Get your Public Key from Account > API Keys
-         * 6. Get your Service ID from Email Services
-         * 7. Get your Template ID from Email Templates
-         * 8. Replace the placeholders below with your actual values
-         */
         
-        // Initialize EmailJS (Replace with your public key)
-        (function() {
-            // TODO: Replace "YOUR_PUBLIC_KEY" with your EmailJS Public Key
-            emailjs.init('KD8PYSkFbR4TgHijc');
-        })();
-        
-        // Form validation and handling with EmailJS
         const form = document.getElementById('contactForm');
         const successMessage = document.getElementById('successMessage');
         
@@ -2062,8 +2685,7 @@
         if (form) {
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
-            const serviceInput = document.getElementById('service');
-            const budgetInput = document.getElementById('budget');
+            const phoneInput = document.getElementById('phone');
             const ideaInput = document.getElementById('idea');
             
             // Name validation
@@ -2088,23 +2710,16 @@
                 }
             });
             
-            // Service validation
-            serviceInput.addEventListener('change', () => {
-                const serviceError = document.getElementById('serviceError');
-                if (!serviceInput.value) {
-                    showError(serviceInput, serviceError, 'Please select a service');
+            // Phone validation
+            phoneInput.addEventListener('blur', () => {
+                const phoneError = document.getElementById('phoneError');
+                const phoneRegex = /^[0-9+\-\s()]{7,}$/;
+                if (!phoneInput.value.trim()) {
+                    showError(phoneInput, phoneError, 'Please enter your phone number');
+                } else if (!phoneRegex.test(phoneInput.value)) {
+                    showError(phoneInput, phoneError, 'Please enter a valid phone number');
                 } else {
-                    showSuccess(serviceInput, serviceError);
-                }
-            });
-            
-            // Budget validation
-            budgetInput.addEventListener('blur', () => {
-                const budgetError = document.getElementById('budgetError');
-                if (!budgetInput.value.trim()) {
-                    showError(budgetInput, budgetError, 'Please enter your budget');
-                } else {
-                    showSuccess(budgetInput, budgetError);
+                    showSuccess(phoneInput, phoneError);
                 }
             });
             
@@ -2131,9 +2746,9 @@
                 let isValid = true;
                 const name = nameInput.value.trim();
                 const email = emailInput.value.trim();
-                const service = serviceInput.value;
-                const budget = budgetInput.value.trim();
+                const phone = phoneInput.value.trim();
                 const idea = ideaInput.value.trim();
+                const phoneRegex = /^[0-9+\-\s()]{7,}$/;
                 
                 // Validate name
                 if (!name) {
@@ -2154,20 +2769,15 @@
                     showSuccess(emailInput, document.getElementById('emailError'));
                 }
                 
-                // Validate service
-                if (!service) {
-                    showError(serviceInput, document.getElementById('serviceError'), 'Please select a service');
+                // Validate phone
+                if (!phone) {
+                    showError(phoneInput, document.getElementById('phoneError'), 'Please enter your phone number');
+                    isValid = false;
+                } else if (!phoneRegex.test(phone)) {
+                    showError(phoneInput, document.getElementById('phoneError'), 'Please enter a valid phone number');
                     isValid = false;
                 } else {
-                    showSuccess(serviceInput, document.getElementById('serviceError'));
-                }
-                
-                // Validate budget
-                if (!budget) {
-                    showError(budgetInput, document.getElementById('budgetError'), 'Please enter your budget');
-                    isValid = false;
-                } else {
-                    showSuccess(budgetInput, document.getElementById('budgetError'));
+                    showSuccess(phoneInput, document.getElementById('phoneError'));
                 }
                 
                 // Validate idea
@@ -2197,26 +2807,32 @@
                 
                 // Disable button and show loading
                 submitBtn.disabled = true;
+                submitBtn.classList.add('loading');
                 submitText.innerHTML = '<span class="spinner"></span>Sending...';
                 
                 try {
-                    // Prepare email data
-                    const emailParams = {
-                        to_email: 'kashichaudhary2002@gmail.com',
+                    // Prepare email data to send to backend
+                    const formData = {
                         name: name,
                         email: email,
-                        service: service,
-                        budget: budget,
-                        idea: idea,
-                        message: `Name: ${name}\nEmail: ${email}\nService: ${service}\nBudget: ${budget}\n\nIdea:\n${idea}`
+                        phone: phone,
+                        idea: idea
                     };
                     
-                    // Send email using EmailJS
-                    await emailjs.send(
-                        'service_6uaj1sk',
-                        'template_o6tk345',
-                        emailParams
-                    );
+                    // Send form data to backend SMTP server
+                    const response = await fetch('/api/send-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(result.error || 'Failed to send email');
+                    }
                     
                     // Show success message
                     successMessage.classList.add('show');
@@ -2236,10 +2852,16 @@
                 } catch (error) {
                     console.error('Email sending failed:', error);
                     
-                    alert('Sorry, there was an error sending your message. Please try again or contact me directly at kashichaudhary2002@gmail.com');
+                    // Check if server is running
+                    if (error.message.includes('Failed to fetch')) {
+                        alert('⚠️ Server is not running!\n\nTo send emails, you need to:\n1. Open terminal\n2. Navigate to the project folder\n3. Run: npm start\n4. Then open http://localhost:3000\n\nOr contact me directly at kashichaudhary2002@gmail.com');
+                    } else {
+                        alert('Sorry, there was an error sending your message.\n\n' + error.message + '\n\nPlease try again or contact me directly at kashichaudhary2002@gmail.com');
+                    }
                 } finally {
                     // Re-enable button
                     submitBtn.disabled = false;
+                    submitBtn.classList.remove('loading');
                     submitText.textContent = originalText;
                 }
             });
