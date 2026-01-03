@@ -574,7 +574,7 @@
             
             .nav-menu {
                 position: fixed;
-                top: 60px;
+                top: 55px; /* nudge menu a bit upward to align with navbar */
                 left: 0;
                 right: 0;
                 background: rgba(0, 0, 0, 0.98);
@@ -586,12 +586,13 @@
                 overflow: hidden;
                 transition: max-height 0.3s ease;
                 z-index: 180;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: none; /* prevent thin line showing when menu is closed */
             }
             
             .nav-menu.active {
                 max-height: 400px;
                 overflow-y: auto;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
             
             .nav-menu li {
