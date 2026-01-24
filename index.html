@@ -8,7 +8,8 @@
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>            
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Kashi Chaudhary | Full Stack Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Kashi Chaudhary — Full-Stack Developer specializing in React, Next.js and backend systems. View projects, skills, and contact information." />
     <style>
         * {
             margin: 0;
@@ -16,11 +17,16 @@
             box-sizing: border-box;
         }
         
+        :root{
+            --navbar-height: 64px; /* adjust if your navbar is taller */
+        }
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         html, body {
+            height: 100%;
             -webkit-text-size-adjust: 100%;
             tab-size: 4;
             line-height: 1.5;
@@ -461,6 +467,10 @@
         section {
             width: 100%;
             position: relative;
+            min-height: calc(100vh - var(--navbar-height));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         /* Navbar */
@@ -472,7 +482,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.75rem 1rem;
+            height: var(--navbar-height);
+            padding: 0 1rem;
             z-index: 200;
             transition: transform 0.3s ease, background 0.3s ease;
             background: rgba(0, 0, 0, 0.3);
@@ -487,6 +498,12 @@
             font-size: 1.25rem;
             font-weight: bold;
             color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-brand:hover {
+            opacity: 0.8;
         }
         
         .nav-brand img {
@@ -950,6 +967,13 @@
             margin-bottom: 2rem;
             line-height: 1.6;
         }
+
+        .hero-text h2 {
+            font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+            color: #d1dbe6;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
         
         .hero-image {
             display: flex;
@@ -1086,10 +1110,14 @@
         }
         
         .about-header {
-            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: bold;
             margin-bottom: 2rem;
             text-align: center;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .about-content {
@@ -1216,7 +1244,7 @@
         
         /* Skills Section */
         #skills {
-            min-height: 50vh;
+            min-height: 100vh;
             background: rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
@@ -1338,66 +1366,331 @@
             color: white;
             padding: 4rem 1rem;
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Entrance animation for Projects section */
+        #projects {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 520ms cubic-bezier(.2,.9,.2,1), transform 520ms cubic-bezier(.2,.9,.2,1);
+        }
+
+        #projects.in-view {
+            opacity: 1;
+            transform: none;
+            min-height: 100vh;
         }
         
         .projects-title {
-            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: bold;
             margin-bottom: 2rem;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
         }
         
         .projects-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            justify-content: center;
             max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .project-card:active {
-            transform: scale(0.98);
-        }
-        
-        .project-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            margin: 2rem auto 0;
+            align-items: start;
+            justify-items: center;
+            padding: 0 1rem;
         }
-        
-        .project-info {
-            padding: 1.25rem;
-            text-align: left;
+
+        @media (min-width: 640px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
-        
-        .project-title {
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
-        
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.75rem 1.25rem;
-            background: white;
-            color: black;
-            border-radius: 0.5rem;
+
+        /* Make each project card act as a centered mockup holder */
+        .project-card {
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            overflow: visible;
+            transition: transform 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 8px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .project-item.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-image-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .project-frame {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 18px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 18px 40px rgba(2,6,23,0.6), 0 2px 6px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            transition: all 0.3s ease;
         }
         
-        .project-link:active {
-            transform: scale(0.95);
+        .project-frame:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(28, 216, 210, 0.5);
+            box-shadow: 0 4px 12px rgba(28, 216, 210, 0.2);
+        }
+
+        .project-screenshot {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            background: #fff;
+        }
+
+        .project-frame:before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            height: 10px;
+            width: calc(100% - 32px);
+            border-radius: 6px;
+            background: linear-gradient(90deg,#0b1220,#0b1220);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+        }
+
+        .project-image { display: none; }
+
+        .project-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.6rem 1rem;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(2,6,23,0.82) 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            opacity: 0;
+        }
+
+        .project-card:hover { transform: scale(1.05) translateY(-5px); }
+        .project-card:hover .project-frame { transform: none; }
+
+        .project-title { font-weight:700; font-size:1rem; color:#fff; }
+
+        .project-title-below {
+            margin-top: 0.75rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fff;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(124, 58, 237, 0.15));
+            border-radius: 8px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 340px;
+            display: block;
+        }
+
+        .project-title-link {
+            text-decoration: none;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .project-title-link:hover .project-title-below {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(124, 58, 237, 0.25));
+            border-color: rgba(6, 182, 212, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .project-image-link:hover .project-frame {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(28, 216, 210, 0.5);
+            box-shadow: 0 4px 12px rgba(28, 216, 210, 0.2);
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .project-cta { background: linear-gradient(90deg, #06b6d4, #7c3aed); color: #fff; padding: 0.45rem 0.85rem; border-radius: 999px; font-weight:600; font-size:0.9rem; display:inline-flex; align-items:center; gap:0.5rem; border:1px solid rgba(255,255,255,0.06); }
+
+        /* Projects CTA */
+        .projects-cta {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .projects-cta .cta-button {
+            min-width: 180px;
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background: rgba(255,255,255,0.02);
+            color: #e6eef6;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 1rem;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.03);
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            gap: 0.9rem;
+            align-items: flex-start;
+            box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+        }
+
+        .testimonial .quote-icon {
+            font-size: 1.8rem;
+            color: #06b6d4;
+            flex: 0 0 36px;
+        }
+
+        .testimonial .testimonial-body p {
+            margin: 0 0 0.6rem 0;
+            color: #cfe8ff;
+            line-height: 1.6;
+        }
+
+        .testimonial .testimonial-body h4 {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #a8cfff;
+            margin-top: 0.25rem;
+            font-weight: 600;
+        }
+
+        .project-cta:active {
+            transform: translateY(1px) scale(0.995);
+        }
+
+        /* Make overlay visible on touch devices (no hover) */
+        @media (hover: none) and (pointer: coarse) {
+            .project-overlay {
+                transform: translateY(0);
+                opacity: 1;
+                padding: 0.9rem 1rem;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+            /* show a small always-visible CTA button on mobile */
+            .project-cta-mobile {
+                display: inline-flex;
+                position: absolute;
+                right: 0.6rem;
+                bottom: 0.6rem;
+                transform: translateY(0);
+                z-index: 12;
+            }
+        }
+
+        /* Testimonials floating panel (desktop only) */
+        #testimonials {
+            transition: transform 420ms ease, opacity 420ms ease, box-shadow 420ms ease;
+            opacity: 1;
+        }
+
+        /* testimonials will remain in normal flow (no floating panel) */
+
+        /* Disable floating panel on small screens */
+        @media (max-width: 639px) {
+            #projects { min-height: auto; justify-content: flex-start; padding-top: calc(var(--navbar-height) + 20px); }
+            .project-frame { max-width: 100%; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Ensure good spacing on small viewports */
+        @media (max-width: 480px) {
+            .project-overlay {
+                padding: 0.6rem 0.8rem;
+                gap: 0.6rem;
+                flex-direction: row;
+            }
+
+            .project-title {
+                font-size: 0.95rem;
+            }
+
+            .project-cta {
+                padding: 0.45rem 0.75rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Desktop hover outline for CTA */
+        .project-cta:hover {
+            box-shadow: 0 12px 30px rgba(7,89,133,0.16);
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.12);
+        }
+
+        /* Hide the mobile CTA by default (desktop) */
+        .project-cta-mobile {
+            display: none;
         }
         
         @media (min-width: 480px) {
@@ -1457,10 +1750,14 @@
         }
         
         .experience-title {
-            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: bold;
             text-align: center;
             margin-bottom: 2rem;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .experience-list {
@@ -1577,10 +1874,13 @@
             text-align: center;
             font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
-            color: white;
             margin: 0 0 2rem 0;
             z-index: 20;
             position: relative;
+            background: linear-gradient(to right, #1cd8d2, #00bf8f, #302b63);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         .contact-container {
@@ -2191,6 +2491,65 @@
             }
         }
     </style>
+    <script>
+    (function(){
+        // Update CSS variable for navbar height to match computed size
+        function updateNavbarHeight(){
+            var nav = document.querySelector('nav');
+            if(!nav) return;
+            var h = Math.round(nav.getBoundingClientRect().height || 64);
+            document.documentElement.style.setProperty('--navbar-height', h + 'px');
+        }
+
+        // Observe projects to add entrance animation class and toggle testimonials floating
+        function setupObservers(){
+            var projects = document.getElementById('projects');
+            var testimonials = document.getElementById('testimonials');
+            if(!projects) return;
+
+            // Projects entrance
+            var projObserver = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if(entry.isIntersecting){ projects.classList.add('in-view'); }
+                });
+            }, { threshold: 0.15 });
+            projObserver.observe(projects);
+
+            // Animate individual project cards one by one
+            var projectCards = document.querySelectorAll('.project-item');
+            var cardObserver = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry, index){
+                    if(entry.isIntersecting && !entry.target.classList.contains('animate-in')){
+                        // Get the actual index from all project items
+                        var cardIndex = Array.from(projectCards).indexOf(entry.target);
+                        // Staggered delay: 120ms per card for cascading effect
+                        setTimeout(function(){
+                            entry.target.classList.add('animate-in');
+                        }, cardIndex * 120);
+                    }
+                });
+            }, { 
+                threshold: 0.3,  // Trigger when 30% of card is visible
+                rootMargin: '0px 0px -50px 0px'  // Trigger slightly before fully in view
+            });
+            
+            projectCards.forEach(function(card){
+                cardObserver.observe(card);
+            });
+
+            // Floating testimonials when projects are scrolled past
+            // Removed floating testimonials behavior — testimonials remain inline
+        }
+
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function(){
+            updateNavbarHeight();
+            setupObservers();
+            var t;
+            window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(updateNavbarHeight, 120); });
+        });
+    })();
+    </script>
 </head>
 <body>
     <!-- Background video: place your file at `assets/bg.mp4` and optional poster at `assets/bg.jpg` -->
@@ -2216,22 +2575,21 @@
     <div id="root">
         <!-- Navigation -->
         <nav role="navigation" aria-label="Main navigation">
-            <div class="nav-brand">
+            <a href="#home" class="nav-brand">
                 <img src="assest/logo.png" alt="Logo" class="nav-logo" onerror="this.style.display='none';" />
                 <span>Mr Kashi</span>
-            </div>
+            </a>
             <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
+                <ul class="nav-menu" id="navMenu">
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-button" aria-label="Contact me">Reach Out</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
             </ul>
         </nav>
         
@@ -2240,11 +2598,11 @@
             <canvas id="particles-canvas"></canvas>
             <div class="hero-container">
                 <div class="hero-text">
-                    <h1>Kashi Chaudhary</h1>
-                    <p>I turn complex ideas into seamless, high-impact web experiences — building modern, scalable, and lightning-fast applications that make a difference.</p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="cta-button cta-primary">Get In Touch</a>
-                        <a href="assest/kashi.pdf" download="Kashi Chaudhary.pdf" class="cta-button cta-secondary">Resume</a>
+                    <h1>Hi, I’m Kashi Chaudhary</h1>
+                    <h2>Full-Stack Developer building modern, scalable web applications</h2>
+                    <p>I specialize in React, Next.js, and backend development. I build user-friendly, high-performance applications and enjoy solving real-world problems.</p>
+                    <div class="cta-buttons hero-buttons">
+                        <a href="#contact" class="cta-button cta-primary">Hire Me</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -2258,29 +2616,151 @@
             <div class="about-container">
                 <h2 class="about-header">About Me</h2>
                 <div class="about-content">
+                    <div class="about-image">
+                        <img src="assest/kashi.jpg" alt="Kashi Chaudhary" class="profile-img" onerror="this.src='assest/avator.png'" />
+                    </div>
                     <div class="about-text">
                         <h2>Kashi Chaudhary</h2>
-                        <p>I'm a Software Developer, Content Creator, and Web Developer — passionate about building fast, resilient applications and sharing coding insights.</p>
-                        <p>I love turning ideas into scalable, user-friendly products that make an impact.</p>
+                        <p>I’m Kashi Chaudhary, a passionate Full-Stack Developer focused on building clean, scalable, and user-friendly web applications. I enjoy turning ideas into real products using modern technologies like React, Next.js, and backend systems.</p>
+                        <p>I have hands-on experience from internships and real projects where I collaborated with teams to design and deliver reliable solutions. I care about performance, code quality, and creating great user experiences.</p>
                         <div class="skills-grid">
                             <div class="skill-item">
                                 <div class="skill-item-label">Speciality</div>
-                                <div class="skill-item-value">Full Stack Developer | Frontend Developer</div>
+                                <div class="skill-item-value">Full Stack Development</div>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-item-label">Focus</div>
-                                <div class="skill-item-value">Performance & Development</div>
+                                <div class="skill-item-value">Performance, UI/UX & Maintainability</div>
                             </div>
                         </div>
                         <div class="cta-buttons">
-                            <a href="#projects" class="cta-button cta-primary">View Projects</a>
-                            <a href="#skills" class="cta-button cta-primary">My Skills</a>
+                            <a href="#projects" class="cta-button cta-primary">See Projects</a>
+                            <a href="assest/kashi.pdf" class="cta-button cta-secondary" download>Download Resume</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
+        <!-- Blog Section (embedded) -->
+        <section id="blog" class="fade-in-up">
+            <h2 class="projects-title">From the Blog</h2>
+            <div style="max-width:900px;margin:0 auto;padding:1rem">
+                <article style="background:rgba(255,255,255,0.02);padding:20px;border-radius:10px;">
+                    <h3 style="margin-top:0">Building Glovia Nepal's E-Commerce Platform: A Developer's Journey</h3>
+                    <div style="color:#9fb7c9;margin-bottom:12px;font-size:0.95rem">Posted on January 24, 2026</div>
+                    <p style="line-height:1.8;color:#d6eaff">I am currently developing an e-commerce platform for Glovia Nepal, a cosmetics brand serving customers across Nepal. What started as a straightforward objective—bringing products online—has evolved into building a dependable, user-centric system designed to support real business operations.</p>
+                    <p style="line-height:1.8;color:#d6eaff">From the outset, the focus has been on trust, simplicity, and usability. Each feature is carefully designed around real customer behavior—how users discover products, make purchasing decisions, and complete orders—while ensuring the business can efficiently manage products, orders, and daily operations behind the scenes.</p>
+                    <p style="line-height:1.8;color:#d6eaff">This project has significantly strengthened my ability to translate business requirements into practical, scalable system functionality. It has also highlighted how thoughtful decisions in user flow and platform structure directly impact long-term performance, maintainability, and growth.</p>
+                    <p style="line-height:1.8;color:#d6eaff">The platform is currently in active development and is being continuously refined based on real use cases and market considerations specific to Nepal. Very soon, it will be live at <a href="https://www.glovia.com.np" target="_blank" rel="noopener noreferrer" style="color:#a8d9ff">www.glovia.com.np</a>.</p>
+                    <p style="line-height:1.8;color:#d6eaff">Overall, this project represents hands-on experience in building a production-ready e-commerce platform—one that is designed to evolve alongside the business it supports.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="fade-in-up">
+            <h2 class="experience-title">Professional Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-role">Application & Networking Engineer (Intern)</div>
+                    <div class="experience-company">Nepal Electricity Authority (NEA) • DEC 2024 – Present</div>
+                    <div class="experience-description">
+                        <p style="margin-bottom: 1rem;">Actively involved in updating and maintaining NEA's existing websites, including feature enhancements, UI improvements, and content updates.</p>
+                        
+                        <p style="margin-bottom: 0.5rem; font-weight: 500;">Developing internal enterprise applications, including:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; list-style-type: disc;">
+                            <li style="margin-bottom: 0.5rem;">Automatic Notice Circulation System (ANCS) for NEA to streamline official notice creation, approval, and distribution.</li>
+                            <li style="margin-bottom: 0.5rem;">Smart Electricity Connection & Approval System to digitize and automate electricity connection requests, verification, and approval workflows.</li>
+                        </ul>
+                        
+                        <ul style="margin-left: 1.5rem; list-style-type: disc;">
+                            <li style="margin-bottom: 0.5rem;">Collaborating with senior engineers and stakeholders to analyze requirements, design system workflows, and implement functional modules.</li>
+                            <li style="margin-bottom: 0.5rem;">Supporting application deployment, testing, and issue resolution in a government-scale IT environment.</li>
+                            <li style="margin-bottom: 0.5rem;">Assisting with network configuration, system maintenance, and troubleshooting to ensure reliable and secure infrastructure.</li>
+                            <li>Following best practices for security, documentation, and version control during application development.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="fade-in-up">
+            <h2 class="projects-title">My Work</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <a class="project-image-link" href="https://mr-strangerx11.github.io/Automatic-Notice-Circulation-System-ANCS-for-NEA/login" target="_blank" rel="noopener noreferrer" aria-label="Open Automatic Notice Circulation System">
+                        <div class="project-frame">
+                            <img src="assest/Project/Automatic-Notice-Circulation-SystemANCS%20for%20NEA.png" alt="Automatic Notice Circulation System" class="project-screenshot" loading="lazy">
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-title">Automatic Notice Circulation System (ANCS)</div>
+                            <div class="project-cta"><span class="project-cta-text">Open</span><span class="iconify" data-icon="mdi:open-in-new" data-inline="false"></span></div>
+                        </div>
+                        <div class="project-cta-mobile" aria-hidden="true"><span class="project-cta-text">View</span><span class="iconify" data-icon="mdi:open-in-new" data-inline="false"></span></div>
+                    </a>
+                    <a class="project-title-link" href="https://mr-strangerx11.github.io/Automatic-Notice-Circulation-System-ANCS-for-NEA/login" target="_blank" rel="noopener noreferrer">
+                        <div class="project-title-below">Automatic Notice Circulation System (ANCS)</div>
+                    </a>
+                </div>
+                <div class="project-item">
+                    <a class="project-image-link" href="https://mr-strangerx11.github.io/business/" target="_blank" rel="noopener noreferrer" aria-label="Open Business Website">
+                        <div class="project-frame">
+                            <img src="assest/Project/Business-website.png" alt="Business Website" class="project-screenshot" loading="lazy">
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-title">Business Website</div>
+                            <div class="project-cta"><span class="project-cta-text">Open</span><span class="iconify" data-icon="mdi:open-in-new" data-inline="false"></span></div>
+                        </div>
+                        <div class="project-cta-mobile" aria-hidden="true"><span class="project-cta-text">View</span><span class="iconify" data-icon="mdi:open-in-new" data-inline="false"></span></div>
+                    </a>
+                    <a class="project-title-link" href="https://mr-strangerx11.github.io/business/" target="_blank" rel="noopener noreferrer">
+                        <div class="project-title-below">Business Website</div>
+                    </a>
+                </div>
+                <div class="project-item">
+                    <a class="project-image-link" href="https://mr-strangerx11.github.io/Kashi-chaudhary2002/" target="_blank" rel="noopener noreferrer" aria-label="Open Personal Portfolio">
+                        <div class="project-frame">
+                            <img src="assest/Project/Portfoilo.png" alt="Portfolio" class="project-screenshot" loading="lazy">
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-title">Personal Portfolio</div>
+                            <div class="project-cta"><span class="project-cta-text">Open</span><span class="iconify" data-icon="mdi:open-in-new" data-inline="false"></span></div>
+                        </div>
+                        <div class="project-cta-mobile" aria-hidden="true"><span class="project-cta-text">View</span><span class="iconify" data-icon="mdi:open-in-new" data-inline="false"></span></div>
+                    </a>
+                    <a class="project-title-link" href="https://mr-strangerx11.github.io/Kashi-chaudhary2002/" target="_blank" rel="noopener noreferrer">
+                        <div class="project-title-below">Personal Portfolio</div>
+                    </a>
+                </div>
+            </div>
+            <div class="projects-cta">
+                <a href="https://github.com/Mr-strangerX11?tab=repositories" class="cta-button cta-primary">See More Projects</a>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="fade-in-up">
+            <h2 class="projects-title">What People Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <span class="quote-icon iconify" data-icon="mdi:format-quote-open" data-inline="false"></span>
+                    <div class="testimonial-body">
+                        <p>"Kashi consistently delivers high-quality work on time and communicates clearly. He quickly learns new technologies and applies them thoughtfully to solve problems."</p>
+                        <h4>— Dr. S. Sharma, Internship Supervisor</h4>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <span class="quote-icon iconify" data-icon="mdi:format-quote-open" data-inline="false"></span>
+                    <div class="testimonial-body">
+                        <p>"During the project, Kashi showed excellent collaboration and attention to detail. His code was well-structured and easy to maintain."</p>
+                        <h4>— Rajesh Kumar, Project Mentor</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Skills Section -->
         <section id="skills" class="fade-in-up">
             <h2 class="skills-title">My Skills</h2>
@@ -2332,6 +2812,7 @@
                 </div>
             </div>
         </section>
+<<<<<<< HEAD
         
         <!-- Projects Section -->
         <section id="projects" class="fade-in-up">
@@ -2394,6 +2875,9 @@
             </div>
         </section>
         
+=======
+
+>>>>>>> 6bb6271 (feat: Projects redesign + assets; email FROM_EMAIL; SendGrid .env.example; nav/layout tweaks)
         <!-- Contact Section -->
         <section id="contact">
             <canvas id="contact-particles-canvas"></canvas>
@@ -2467,7 +2951,9 @@
         </footer>
     </div>
     
-    <!-- SMTP Email Service -->
+    <!-- EmailJS SDK and integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="email.js"></script>
     
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -2820,20 +3306,8 @@
                         idea: idea
                     };
                     
-                    // Send form data to backend SMTP server
-                    const response = await fetch('/api/send-email', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
-                    
-                    const result = await response.json();
-                    
-                    if (!response.ok) {
-                        throw new Error(result.error || 'Failed to send email');
-                    }
+                    // Send emails via EmailJS (client-side)
+                    await window.sendContactEmails(name, email, phone, idea);
                     
                     // Show success message
                     successMessage.classList.add('show');
@@ -2853,12 +3327,7 @@
                 } catch (error) {
                     console.error('Email sending failed:', error);
                     
-                    // Check if server is running
-                    if (error.message.includes('Failed to fetch')) {
-                        alert('⚠️ Server is not running!\n\nTo send emails, you need to:\n1. Open terminal\n2. Navigate to the project folder\n3. Run: npm start\n4. Then open http://localhost:3000\n\nOr contact me directly at kashichaudhary2002@gmail.com');
-                    } else {
-                        alert('Sorry, there was an error sending your message.\n\n' + error.message + '\n\nPlease try again or contact me directly at kashichaudhary2002@gmail.com');
-                    }
+                    alert('Sorry, there was an error sending your message.\n\n' + (error.message || 'Unexpected error') + '\n\nPlease try again or contact me directly at kashichaudhary2002@gmail.com');
                 } finally {
                     // Re-enable button
                     submitBtn.disabled = false;
